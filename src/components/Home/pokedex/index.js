@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import axios from '../../../services/axios';
 import { PokedexStyle } from './styled';
 import Header from '../header/index';
@@ -8,7 +9,7 @@ import Loading from '../../Loading';
 export default function Pokedex() {
   const [pokemons, setPokemons] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const pokedex = useRef();
+  const sortAZ = useSelector((state) => state.pokedex.sort);
   useEffect(() => {
     async function loadPokemonsFirstGen() {
       const response = await axios.get('generation/1');
@@ -25,11 +26,19 @@ export default function Pokedex() {
     loadPokemonsFirstGen();
   }, []);
 
+  if (sortAZ) {
+    pokemons.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  if (!sortAZ) {
+    pokemons.sort((a, b) => b.name.localeCompare(a.name));
+  }
+
   return (
     <>
+      <Loading isLoading={isLoading} />
       <Header />
-      <PokedexStyle ref={pokedex}>
-        <Loading isLoading={isLoading} />
+      <PokedexStyle>
         {pokemons.map((pokemon) => {
           const { id } = pokemon;
           return (
