@@ -1,19 +1,18 @@
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
-  padding: 0px 8px;
   height: 60px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  font-family: Poppins;
 
   & .pokeball {
     align-items: center;
     height: 30px;
     width: 30px;
+    padding: 0 20px;
   }
 
   .logo {
@@ -25,7 +24,7 @@ export const Nav = styled.nav`
     color: #212121;
     font-weight: 700;
     height: 32px;
-    margin-left: 20px;
+    padding: 0 20px;
   }
 
   .sort {
@@ -34,6 +33,71 @@ export const Nav = styled.nav`
     align-items: center;
     cursor: pointer;
     font-size: 20px;
+    border: none;
+    z-index: 3;
+    background: transparent;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .sort-nav {
+    width: fit-content;
+    height: 150px;
+    right: 0;
+    z-index: 0;
+    top: 50px;
+    display: flex;
+    position: absolute;
+
+    & span {
+      display: none;
+      font-size: 15px;
+      position: relative;
+      z-index: 3;
+      color: #fff;
+
+      & button {
+        border: none;
+        background-color: none;
+        transition: 0.3s ease-in-out;
+        margin: 0;
+        font-weight: 700;
+        font-size: 20px;
+        background: transparent;
+        cursor: pointer;
+        color: #fff;
+      }
+    }
+  }
+  .sort-nav.active {
+    align-items: center;
+    justify-content: center;
+
+    & span {
+      display: flex;
+      flex-direction: column;
+
+      & button {
+        transition: 1s ease-in-out;
+        margin: 10px;
+      }
+    }
+  }
+`;
+
+export const Background = styled.input`
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+
+  &.active {
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
   }
 `;
 
