@@ -18,12 +18,26 @@ export const PokedexStyle = styled.div`
     border: 2px solid;
     box-shadow: 0px 0px 3px black;
     text-decoration: none;
+    z-index: 0;
 
-    & .id {
-      width: 80%;
-      padding: 10px 0;
-      align-items: center;
-      text-align: right;
+    & .header-card {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      & .favorite {
+        position: relative;
+        border-radius: 30px;
+        padding: 5px;
+        z-index: 1;
+        position: relative;
+      }
+      & .id {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        text-align: right;
+        padding: 0 20px;
+      }
     }
 
     & img {
@@ -48,6 +62,20 @@ export const PokedexStyle = styled.div`
 
     @media (max-width: 768px) {
       width: 130px;
+
+      & .header-card {
+        & .favorite {
+          position: relative;
+          padding: 5px;
+          width: 35px;
+          height: 35px;
+          position: relative;
+        }
+        & .id {
+          font-size: 15px;
+        }
+      }
+
       & img {
         width: 60px;
         height: 60px;
