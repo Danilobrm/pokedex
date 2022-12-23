@@ -2,34 +2,51 @@ import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   faArrowDownLong,
+  faArrowUpLong,
   faArrowDownAZ,
   faArrowUpAZ,
   faHashtag,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch, useSelector } from 'react-redux';
-import { Background, Nav, SearchBar } from './styled';
+import { Nav } from './styled';
 import * as actions from '../../../store/modules/pokemon-redux/actions';
+import SearchBar from './searchBar/index';
 
 export default function Header() {
   const dispatch = useDispatch();
   const sortNav = useRef();
-  const background = useRef();
-  const sortAZ = useSelector((state) => state.pokedex.sort);
+  const sortAZ = useSelector((state) => state.sort.sortAZ);
+  const sort19 = useSelector((state) => state.sort.sort19);
+  const iconOpenSort = useRef();
+
+  function checkMenu() {
+    if (sortNav.current.className === 'sort-nav active') {
+      iconOpenSort.current.style.color = '#fff';
+      return;
+    }
+    iconOpenSort.current.style.color = 'black';
+  }
 
   function sortMenuAction() {
     sortNav.current.classList.toggle('active');
-    background.current.classList.toggle('active');
+    dispatch(actions.sortMenuSuccess());
+    checkMenu();
   }
 
   function sortAZFunction() {
     dispatch(actions.sortAZRequest());
     sortNav.current.classList.toggle('active');
-    background.current.classList.toggle('active');
+    checkMenu();
+  }
+
+  function sort19Function() {
+    dispatch(actions.sort19Request());
+    sortNav.current.classList.toggle('active');
+    checkMenu();
   }
   return (
     <>
-      <Background ref={background} className="bg" />
       <Nav>
         <div className="pokeball">
           <img
@@ -41,9 +58,14 @@ export default function Header() {
           Pokédex
         </Link>
         <div>
-          <button type="button" className="sort" onClick={sortMenuAction}>
-            <FontAwesomeIcon icon={faHashtag} style={{ fontSize: '15px' }} />
-            {sortAZ ? (
+          <button
+            ref={iconOpenSort}
+            type="button"
+            className="sort"
+            onClick={sortMenuAction}
+          >
+            <FontAwesomeIcon icon={faHashtag} style={{ fontSize: '13px' }} />
+            {sortAZ || sort19 === false ? (
               <FontAwesomeIcon
                 icon={faArrowDownLong}
                 style={{
@@ -81,22 +103,36 @@ export default function Header() {
                 )}
               </button>
 
-              <button type="button">
+              <button type="button" onClick={sort19Function}>
                 Número do Pokédex
                 <FontAwesomeIcon
                   icon={faHashtag}
-                  style={{ fontSize: '20px', marginLeft: '10px' }}
+                  style={{
+                    fontSize: '12px',
+                    marginLeft: '10px',
+                  }}
                 />
-                <FontAwesomeIcon
-                  icon={faArrowDownLong}
-                  style={{ fontSize: '20px', marginLeft: '10px' }}
-                />
+                {sort19 === false ? (
+                  <FontAwesomeIcon
+                    icon={faArrowDownLong}
+                    style={{
+                      fontSize: '15px',
+                    }}
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faArrowUpLong}
+                    style={{
+                      fontSize: '15px',
+                    }}
+                  />
+                )}
               </button>
             </span>
           </nav>
         </div>
       </Nav>
-      <SearchBar type="search" placeholder="Procurar" />
+      <SearchBar />
     </>
   );
 }
