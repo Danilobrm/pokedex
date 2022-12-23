@@ -9,6 +9,14 @@ export const StatsStyle = styled.div`
   flex-direction: column;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 
+  button {
+    position: absolute;
+    margin: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
   .types {
     display: flex;
     margin: 40px auto;
