@@ -27,3 +27,35 @@ export function pokemonsDataSaveSuccess(payload) {
     payload,
   };
 }
+
+export function pokemonSearchInputRequest(payload) {
+  return {
+    type: types.POKEMONSEARCHINPUT_REQUEST,
+    payload,
+  };
+}
+
+export function pokemonSearchInputSuccess(payload) {
+  return {
+    type: types.POKEMONSEARCHINPUT_SUCCESS,
+    payload,
+  };
+}
+
+export function sortMenuSuccess() {
+  return {
+    type: types.SORTMENU_SUCCESS,
+  };
+}
+
+export function sort19Request() {
+  return {
+    type: types.SORT19_REQUEST,
+  };
+}
+
+export function sort19Success() {
+  return {
+    type: types.SORT19_SUCCESS,
+  };
+}

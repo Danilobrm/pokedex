@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 
-import pokedex from './pokemon-redux/reducer';
+import { sort, pokedex } from './pokemon-redux/reducer';
 
 export default combineReducers({
+  sort,
   pokedex,
 });

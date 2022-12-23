@@ -6,7 +6,7 @@ export default (reducers) => {
     {
       key: 'POKEDEX',
       storage,
-      whitelist: ['pokedex'],
+      whitelist: ['sort'],
     },
     reducers
   );
