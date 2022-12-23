@@ -7,6 +7,7 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
+  z-index: 3;
 
   & .pokeball {
     align-items: center;
@@ -42,93 +43,50 @@ export const Nav = styled.nav`
 
   .sort-nav {
     width: fit-content;
-    height: 150px;
+    height: 100%;
     right: 0;
-    z-index: 0;
-    top: 50px;
+    z-index: 1;
+    top: 0;
     display: flex;
     position: absolute;
 
     & span {
       display: none;
       font-size: 15px;
-      position: relative;
       z-index: 3;
       color: #fff;
+      position: relative;
 
       & button {
         border: none;
         background-color: none;
-        transition: 0.3s ease-in-out;
         margin: 0;
         font-weight: 700;
         font-size: 20px;
         background: transparent;
         cursor: pointer;
         color: #fff;
+
+        @media (max-width: 768px) {
+          font-size: 15px;
+        }
       }
     }
   }
   .sort-nav.active {
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    width: fit-content;
+    background: rgba(0, 0, 0, 0.7);
 
     & span {
       display: flex;
+      margin-top: 60px;
       flex-direction: column;
 
       & button {
-        transition: 1s ease-in-out;
         margin: 10px;
       }
-    }
-  }
-`;
-
-export const Background = styled.input`
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-
-  &.active {
-    z-index: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-  }
-`;
-
-export const SearchBar = styled.input`
-  font-family: Poppins;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 4px 8px;
-  gap: 16px;
-  width: 100%;
-  height: 40px;
-  border-radius: 8px;
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  margin-bottom: 10px;
-
-  &::placeholder {
-    text-align: center;
-  }
-  &:focus {
-    border: 1px solid black;
-    &::placeholder {
-      color: transparent;
-    }
-  }
-
-  &:focus {
-    &:placeholder-shown {
-      text-align: left;
-      color: black;
     }
   }
 `;
