@@ -53,21 +53,27 @@ export default function Pokedex() {
       setLocalFavorites(savedPokemons);
     }
     getFavorites();
-  }, [filteredPokemons, pokemons, value]);
+  }, [pokemons, value]);
 
-  if (sortAZ) {
-    pokemons.sort((a, b) => a.name.localeCompare(b.name));
-  }
-  if (sortAZ === false) {
-    pokemons.sort((a, b) => b.name.localeCompare(a.name));
-  }
+  function sort() {
+    if (sortAZ) {
+      pokemons.sort((a, b) => a.name.localeCompare(b.name));
+      return;
+    }
+    if (sortAZ === false) {
+      pokemons.sort((a, b) => b.name.localeCompare(a.name));
+      return;
+    }
 
-  if (sort19) {
-    pokemons.sort((a, b) => a.id < b.id);
+    if (sort19) {
+      pokemons.sort((a, b) => a.id < b.id);
+      return;
+    }
+    if (sort19 === false) {
+      pokemons.sort((a, b) => a.id > b.id);
+    }
   }
-  if (sort19 === false) {
-    pokemons.sort((a, b) => a.id > b.id);
-  }
+  sort();
 
   return (
     <>
