@@ -1,8 +1,6 @@
 import * as types from '../types';
 
 const initialState = {
-  sortAZ: false,
-  sort19: false,
   sortMenu: false,
   stats: {},
   color: '',
@@ -10,24 +8,27 @@ const initialState = {
   searchValue: '',
 };
 
-const pokemons = {
-  savedPokemons: {},
+const sortArray = {
+  sortAZ: undefined,
+  sort19: undefined,
 };
 
 // eslint-disable-next-line default-param-last, func-names
-export function sort(state = pokemons, action) {
+export function sort(state = sortArray, action) {
   switch (action.type) {
     case types.SORTAZ_SUCCESS: {
       const newState = { ...state };
       newState.sortAZ = !newState.sortAZ;
       newState.sort19 = undefined;
+      newState.sortFavorito = undefined;
       return newState;
     }
 
-    case types.SORT19_REQUEST: {
+    case types.SORT19_SUCCESS: {
       const newState = { ...state };
       newState.sort19 = !newState.sort19;
       newState.sortAZ = undefined;
+      newState.sortFavorito = undefined;
       return newState;
     }
 
