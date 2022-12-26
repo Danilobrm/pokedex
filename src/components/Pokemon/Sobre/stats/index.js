@@ -17,18 +17,13 @@ export default function Stats() {
     setColor(pokemon.color);
     setStats(pokemon.stats);
     function checkSaved() {
-      try {
-        const myPokemonList = localStorage.getItem('@favoritepokemons');
-        const savedPokemons = JSON.parse(myPokemonList) || [];
-        const hasPokemon = savedPokemons.some(
-          (savedPokemon) => savedPokemon.id === Number(id)
-        );
-        console.log(hasPokemon);
-        if (hasPokemon) {
-          setCheckSavedPokemon(true);
-        }
-      } catch (error) {
-        console.log(error);
+      const myPokemonList = localStorage.getItem('@favoritepokemons');
+      const savedPokemons = JSON.parse(myPokemonList) || [];
+      const hasPokemon = savedPokemons.some(
+        (savedPokemon) => savedPokemon.id === Number(id)
+      );
+      if (hasPokemon) {
+        setCheckSavedPokemon(true);
       }
     }
     checkSaved();
@@ -38,30 +33,22 @@ export default function Stats() {
   }, [color, id, pokemon.color, pokemon.stats, stats]);
 
   function handleFavorite() {
-    try {
-      const myPokemonsList = localStorage.getItem('@favoritepokemons');
-      const savedPokemons = JSON.parse(myPokemonsList) || [];
-      setCheckSavedPokemon(true);
-      const hasPokemon = savedPokemons.some(
-        (savedPokemon) => savedPokemon.id === id
-      );
-      if (hasPokemon) return;
-      savedPokemons.push(pokemon.stats);
-      localStorage.setItem('@favoritepokemons', JSON.stringify(savedPokemons));
-    } catch (error) {
-      console.log(error);
-    }
+    const myPokemonsList = localStorage.getItem('@favoritepokemons');
+    const savedPokemons = JSON.parse(myPokemonsList) || [];
+    setCheckSavedPokemon(true);
+    const hasPokemon = savedPokemons.some(
+      (savedPokemon) => savedPokemon.id === id
+    );
+    if (hasPokemon) return;
+    savedPokemons.push(pokemon.stats);
+    localStorage.setItem('@favoritepokemons', JSON.stringify(savedPokemons));
   }
 
   function handleDelete() {
-    try {
-      const pokemonsFilter = pokemons.filter((item) => item.id !== Number(id));
-      setPokemons(pokemonsFilter);
-      localStorage.setItem('@favoritepokemons', JSON.stringify(pokemonsFilter));
-      setCheckSavedPokemon(false);
-    } catch (error) {
-      console.log(error);
-    }
+    const pokemonsFilter = pokemons.filter((item) => item.id !== Number(id));
+    setPokemons(pokemonsFilter);
+    localStorage.setItem('@favoritepokemons', JSON.stringify(pokemonsFilter));
+    setCheckSavedPokemon(false);
   }
   if (!stats.types) {
     return <Loading />;

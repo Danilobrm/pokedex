@@ -8,6 +8,7 @@ export const StatsStyle = styled.div`
   border-radius: 8px;
   flex-direction: column;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  padding: 0 0 10px 0;
 
   button {
     position: absolute;
@@ -24,7 +25,7 @@ export const StatsStyle = styled.div`
   }
 
   .type {
-    margin: 20px 20px 0 20px;
+    margin: 20px 10px 0 10px;
     border-radius: 10px;
     padding: 4px 10px;
     color: white;
