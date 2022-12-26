@@ -6,7 +6,7 @@ export const AboutArea = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  margin: 0 auto;
+  margin: 20px auto;
   align-items: center;
 
   p {
