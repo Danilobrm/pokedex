@@ -105,7 +105,7 @@ export default function Pokedex() {
               </div>
 
               <img
-                src={`https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
                 alt={pokemon.name}
               />
               <h1 style={{ background: `${pokemon.color.name}` }}>
