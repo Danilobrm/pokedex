@@ -38,6 +38,8 @@ export const Nav = styled.nav`
     z-index: 3;
     background: transparent;
     padding: 0 20px;
-    position: relative;
+    position: fixed;
+    right: 0;
+    top: 20px;
   }
 `;
