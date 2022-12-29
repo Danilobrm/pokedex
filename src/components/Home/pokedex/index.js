@@ -56,6 +56,7 @@ export default function Pokedex() {
   }, [pokemons, value]);
 
   function sort() {
+    pokemons.map((item) => console.log(typeof item.id));
     if (sortAZ) {
       pokemons.sort((a, b) => a.name.localeCompare(b.name));
       return;
@@ -69,6 +70,7 @@ export default function Pokedex() {
       pokemons.sort((a, b) => a.id < b.id);
       return;
     }
+
     if (sort19 === false) {
       pokemons.sort((a, b) => a.id > b.id);
     }
