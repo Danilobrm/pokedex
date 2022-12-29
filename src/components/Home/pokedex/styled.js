@@ -61,7 +61,8 @@ export const PokedexStyle = styled.div`
     }
 
     @media (max-width: 768px) {
-      width: 130px;
+      width: 170px;
+      height: fit-content;
 
       & .header-card {
         & .favorite {
@@ -77,11 +78,11 @@ export const PokedexStyle = styled.div`
       }
 
       & img {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
       }
       & h1 {
-        font-size: 15px;
+        font-size: 17px;
         height: 30px;
       }
       margin: 5px;
