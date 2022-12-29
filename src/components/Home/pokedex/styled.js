@@ -91,5 +91,6 @@ export const PokedexStyle = styled.div`
   @media (max-width: 768px) {
     transition: 0.3s ease-in-out;
     margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
