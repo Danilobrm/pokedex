@@ -59,7 +59,7 @@ export default function About() {
         <HeaderComponent />
         <img
           className="pokemon"
-          src={`https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
           alt={name}
         />
         <Stats />
