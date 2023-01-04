@@ -88,7 +88,6 @@ export default function Stats() {
       )}
 
       <div className="about">
-        <h2 style={{ color: `${color}` }}>About</h2>
         <About />
       </div>
     </StatsStyle>
