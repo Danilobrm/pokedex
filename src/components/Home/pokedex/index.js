@@ -13,7 +13,6 @@ export default function Pokedex() {
   const [localFavorites, setLocalFavorites] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const sortAZ = useSelector((state) => state.sort.sortAZ);
-  const sort19 = useSelector((state) => state.sort.sort19);
   const value = useSelector((state) => state.pokedex.searchValue);
 
   useEffect(() => {
@@ -30,6 +29,13 @@ export default function Pokedex() {
       setPokemons(arrayPokemons);
     }
     loadPokemonsFirstGen();
+
+    function getFavorites() {
+      const myPokemonList = localStorage.getItem('@favoritepokemons');
+      const savedPokemons = JSON.parse(myPokemonList) || [];
+      setLocalFavorites(savedPokemons);
+    }
+    getFavorites();
   }, []);
 
   useEffect(() => {
@@ -46,34 +52,14 @@ export default function Pokedex() {
       return setFilteredPokemons(pokemons);
     }
     search();
-
-    function getFavorites() {
-      const myPokemonList = localStorage.getItem('@favoritepokemons');
-      const savedPokemons = JSON.parse(myPokemonList) || [];
-      setLocalFavorites(savedPokemons);
-    }
-    getFavorites();
   }, [pokemons, value]);
 
   function sort() {
-    pokemons.map((item) => console.log(typeof item.id));
     if (sortAZ) {
       pokemons.sort((a, b) => a.name.localeCompare(b.name));
       return;
     }
-    if (sortAZ === false) {
-      pokemons.sort((a, b) => b.name.localeCompare(a.name));
-      return;
-    }
-
-    if (sort19) {
-      pokemons.sort((a, b) => a.id < b.id);
-      return;
-    }
-
-    if (sort19 === false) {
-      pokemons.sort((a, b) => a.id > b.id);
-    }
+    pokemons.sort((a, b) => b.name.localeCompare(a.name));
   }
   sort();
 
@@ -94,17 +80,19 @@ export default function Pokedex() {
               className="pokemon-card"
               style={{ borderColor: `${pokemon.color.name}` }}
             >
-              <div className="header-card">
-                {hasPokemon ? (
-                  <FaStar className="favorite" color="#ffcb0c" size={50} />
-                ) : (
-                  <FaStar className="favorite" color="transparent" size={50} />
-                )}
+              <span>
+                <div>
+                  {hasPokemon ? (
+                    <FaStar color="#ffcb0c" />
+                  ) : (
+                    <FaStar color="transparent" />
+                  )}
+                </div>
 
                 <div style={{ color: `${pokemon.color.name}` }} className="id">
                   #{id}
                 </div>
-              </div>
+              </span>
 
               <img
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
