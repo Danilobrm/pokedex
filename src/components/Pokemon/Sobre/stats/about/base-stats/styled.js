@@ -8,7 +8,8 @@ export const BaseStatsStyle = styled.div`
   .stats {
     align-items: center;
     display: flex;
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     &:nth-child(2) {
       margin-top: 20px;
     }
@@ -36,7 +37,7 @@ export const BaseStatsStyle = styled.div`
   }
 
   .line {
-    width: 90%;
+    width: 100%;
   }
 
   .line-stat-back {
