@@ -30,4 +30,13 @@ export const SearchBarStyle = styled.input`
       color: black;
     }
   }
+
+  @media (max-width: 768px) {
+    height: 24px;
+    font-size: 10px;
+    &::placeholder {
+      font-weight: 400;
+      line-height: 16px;
+    }
+  }
 `;
