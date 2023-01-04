@@ -20,13 +20,7 @@ export default function HeaderComponent() {
     <Header>
       <span>
         <Link to="/">
-          <FontAwesomeIcon
-            style={{
-              cursor: 'pointer',
-              padding: '0 20px',
-            }}
-            icon={faArrowLeft}
-          />
+          <FontAwesomeIcon icon={faArrowLeft} />
         </Link>
         <h1>{name.slice(0, 1).toUpperCase() + name.slice(1)}</h1>
       </span>
