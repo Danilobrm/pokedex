@@ -8,27 +8,16 @@ const initialState = {
   searchValue: '',
 };
 
-const sortArray = {
-  sortAZ: undefined,
-  sort19: undefined,
+const sortOption = {
+  sortAZ: false,
 };
 
 // eslint-disable-next-line default-param-last, func-names
-export function sort(state = sortArray, action) {
+export function sort(state = sortOption, action) {
   switch (action.type) {
     case types.SORTAZ_SUCCESS: {
       const newState = { ...state };
       newState.sortAZ = !newState.sortAZ;
-      newState.sort19 = undefined;
-      newState.sortFavorito = undefined;
-      return newState;
-    }
-
-    case types.SORT19_SUCCESS: {
-      const newState = { ...state };
-      newState.sort19 = !newState.sort19;
-      newState.sortAZ = undefined;
-      newState.sortFavorito = undefined;
       return newState;
     }
 
@@ -52,12 +41,6 @@ export function pokedex(state = initialState, action) {
     case types.POKEMONSEARCHINPUT_SUCCESS: {
       const newState = { ...state };
       newState.searchValue = action.payload.value;
-      return newState;
-    }
-
-    case types.SORTMENU_SUCCESS: {
-      const newState = { ...state };
-      newState.sortMenu = !newState.sortMenu;
       return newState;
     }
 
