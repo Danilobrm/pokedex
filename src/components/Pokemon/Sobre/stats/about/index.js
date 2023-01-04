@@ -26,9 +26,9 @@ export default function About() {
         <div className="weight">
           <span>
             <FontAwesomeIcon
+              className="iconWeight"
               icon={faWeightScale}
               style={{
-                fontSize: '30px',
                 color: 'gray',
                 marginRight: '10px',
               }}
@@ -37,20 +37,23 @@ export default function About() {
           </span>
           <p>Weight</p>
         </div>
+
         <div className="height">
           <span>
             <FontAwesomeIcon
+              className="iconRuler"
               icon={faRuler}
               style={{
-                fontSize: '30px',
                 transform: 'rotate(-45deg)',
                 color: 'gray',
               }}
             />
+            <div className="balanca" />
             {stats.height / 10} m
           </span>
           <p>Height</p>
         </div>
+
         <div className="moves">
           <span>
             {stats.moves.slice(0, 2).map((move) => {
@@ -60,16 +63,7 @@ export default function About() {
           <p>Moves</p>
         </div>
       </BodyData>
-      <p
-        style={{
-          marginTop: '40px',
-          textAlign: 'justify',
-          width: '90%',
-          fontSize: '15px',
-        }}
-      >
-        {text}
-      </p>
+      <p className="text">{text}</p>
       <BaseStats />
     </AboutArea>
   );
