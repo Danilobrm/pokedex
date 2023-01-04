@@ -22,6 +22,7 @@ export default function About() {
   }
   return (
     <AboutArea>
+      <h2 style={{ color: `${pokemon.color}` }}>About</h2>
       <BodyData>
         <div className="weight">
           <span>
