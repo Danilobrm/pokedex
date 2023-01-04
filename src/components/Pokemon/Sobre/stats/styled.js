@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const StatsStyle = styled.div`
   z-index: 1;
-  margin: 0 auto;
-  width: 90%;
+  margin: -50px auto 0 auto;
+  width: 95%;
   background: #fff;
   border-radius: 8px;
   flex-direction: column;
