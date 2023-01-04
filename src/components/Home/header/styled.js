@@ -9,14 +9,14 @@ export const Nav = styled.nav`
   margin: 0 auto;
   z-index: 3;
 
-  & .pokeball {
+  & img {
     align-items: center;
     height: 30px;
     width: 30px;
     padding: 0 20px;
   }
 
-  .logo {
+  & a {
     line-height: 32px;
     width: 100%;
     text-decoration: none;
@@ -28,18 +28,18 @@ export const Nav = styled.nav`
     padding: 0 20px;
   }
 
-  .sort {
-    display: flex;
-    height: 32px;
-    align-items: center;
-    cursor: pointer;
-    font-size: 20px;
-    border: none;
-    z-index: 3;
-    background: transparent;
-    padding: 0 20px;
-    position: fixed;
-    right: 0;
-    top: 20px;
+  @media (max-width: 768px) {
+    & img {
+      width: 24px;
+      height: 24px;
+      padding: 0;
+    }
+
+    & a {
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 700;
+      height: 32px;
+    }
   }
 `;
