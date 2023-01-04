@@ -32,7 +32,6 @@ export const Container = styled.div`
       & .pokemon {
         width: 300px;
         height: 300px;
-        margin-bottom: -90px;
         top: 0;
       }
     }
