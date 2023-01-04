@@ -7,11 +7,20 @@ export const AboutArea = styled.div`
   margin: 20px auto;
   align-items: center;
 
+  & h2 {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 16px;
+    margin: 10px;
+  }
+
   .text {
     font-weight: 400;
     font-size: 15px;
     margin-top: 40px;
-    @media (max-width: 768px) {
+  }
+  @media (max-width: 768px) {
+    & .text {
       font-weight: 400;
       font-size: 10px;
       line-height: 16px;
@@ -19,6 +28,12 @@ export const AboutArea = styled.div`
       height: 32px;
       color: #212121;
       text-align: justify;
+    }
+
+    & h2 {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 16px;
     }
   }
 `;
