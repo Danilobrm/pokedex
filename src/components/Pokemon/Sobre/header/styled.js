@@ -4,6 +4,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   width: 90%;
+  height: 32px;
   font-weight: 700;
   font-size: 30px;
   margin: 0 auto;
@@ -15,6 +16,7 @@ export const Header = styled.div`
 
   a {
     color: #fff;
+    cursor: pointer;
   }
 
   span {
@@ -23,16 +25,22 @@ export const Header = styled.div`
 
     & h1 {
       font-size: 30px;
-      margin-left: 20px;
+      margin-left: 25px;
     }
   }
 
   @media (max-width: 768px) {
-    font-size: 25px;
     span {
       & h1 {
-        margin-left: 2px;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
       }
+    }
+    div {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 32px;
     }
   }
 `;
