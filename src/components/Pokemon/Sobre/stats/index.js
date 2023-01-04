@@ -55,25 +55,7 @@ export default function Stats() {
   }
   return (
     <StatsStyle>
-      {checkSavedPokemon ? (
-        <button
-          type="button"
-          onClick={handleDelete}
-          className="favorite-button"
-        >
-          <FaStar className="favorite" color="#ffcb0c" size={50} />
-        </button>
-      ) : (
-        <button
-          type="button"
-          onClick={handleFavorite}
-          className="favorite-button"
-        >
-          <FaStar className="favorite" color="black" size={50} />
-        </button>
-      )}
-
-      <div className="types">
+      <span className="types">
         {stats.types.map((type) => {
           return (
             <div
@@ -86,7 +68,25 @@ export default function Stats() {
             </div>
           );
         })}
-      </div>
+      </span>
+      {checkSavedPokemon ? (
+        <button
+          type="button"
+          onClick={handleDelete}
+          className="favorite-button"
+        >
+          <FaStar className="favorite" color="#ffcb0c" />
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={handleFavorite}
+          className="favorite-button"
+        >
+          <FaStar className="favorite" color="black" />
+        </button>
+      )}
+
       <div className="about">
         <h2 style={{ color: `${color}` }}>About</h2>
         <About />
