@@ -18,33 +18,25 @@ export default function About() {
   const { id } = useParams();
   useEffect(() => {
     async function loadPokemonColor() {
-      try {
-        const response = await axios.get(`/pokemon-species/${id}`);
-        setName(response.data.name);
-        setColor(response.data.color.name);
-        const englishText = response.data.flavor_text_entries.find(
-          (item) => item.language.name === 'en'
-        );
-        setText(englishText.flavor_text);
-      } catch (error) {
-        console.log('error');
-      }
+      const response = await axios.get(`/pokemon-species/${id}`);
+      setName(response.data.name);
+      setColor(response.data.color.name);
+      const englishText = response.data.flavor_text_entries.find(
+        (item) => item.language.name === 'en'
+      );
+      setText(englishText.flavor_text);
     }
     loadPokemonColor();
     async function loadPokemonStats() {
-      try {
-        const response = await axios.get(`/pokemon/${id}/`);
-        setPokemonStats(response.data);
-      } catch (error) {
-        console.log(error);
-      }
+      const response = await axios.get(`/pokemon/${id}/`);
+      setPokemonStats(response.data);
     }
     loadPokemonStats();
 
     setIsLoading(false);
   }, [id]);
   useEffect(() => {
-    dispatch(actions.pokemonsDataSaveRequest({ pokemonStats, color, text }));
+    dispatch(actions.pokemonsDataSaveSuccess({ pokemonStats, color, text }));
   });
 
   return (
