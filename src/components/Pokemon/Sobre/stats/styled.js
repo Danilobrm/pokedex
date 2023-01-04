@@ -62,13 +62,5 @@ export const StatsStyle = styled.div`
         justify-content: center;
       }
     }
-
-    & .about {
-      h2 {
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 16px;
-      }
-    }
   }
 `;
