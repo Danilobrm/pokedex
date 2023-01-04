@@ -7,7 +7,7 @@ export const PokedexStyle = styled.div`
   width: fit-content;
   transition: 0.3s ease-in-out;
 
-  .pokemon-card {
+  & a {
     display: flex;
     flex-direction: column;
     margin: 10px;
@@ -20,19 +20,19 @@ export const PokedexStyle = styled.div`
     text-decoration: none;
     z-index: 0;
 
-    & .header-card {
+    & span {
       display: flex;
       width: 100%;
       justify-content: space-between;
-      & .favorite {
+      & div:nth-child(1) {
         position: relative;
         border-radius: 30px;
         padding: 5px;
         z-index: 1;
         position: relative;
+        font-size: 50px;
       }
-      & .id {
-        padding: 10px 0;
+      & div:nth-child(2) {
         display: flex;
         align-items: center;
         text-align: right;
@@ -41,14 +41,13 @@ export const PokedexStyle = styled.div`
     }
 
     & img {
-      width: 150px;
-      height: 150px;
+      width: 130px;
+      height: 130px;
     }
 
     & h1 {
       display: flex;
       justify-content: center;
-      margin-bottom: 0;
       align-items: center;
       width: 100%;
       height: 50px;
@@ -59,39 +58,42 @@ export const PokedexStyle = styled.div`
       border-top: 1px solid rgba(0, 0, 0, 0.1);
       text-shadow: 0 0 5px black;
     }
-
-    @media (max-width: 768px) {
-      width: 170px;
-      height: fit-content;
-
-      & .header-card {
-        & .favorite {
-          position: relative;
-          padding: 5px;
-          width: 35px;
-          height: 35px;
-          position: relative;
-        }
-        & .id {
-          font-size: 15px;
-        }
-      }
-
-      & img {
-        width: 80px;
-        height: 80px;
-      }
-      & h1 {
-        font-size: 17px;
-        height: 30px;
-      }
-      margin: 5px;
-    }
   }
 
   @media (max-width: 768px) {
     transition: 0.3s ease-in-out;
     margin: 0 auto;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+
+    & a {
+      width: 104px;
+      height: 112px;
+      align-items: center;
+      & span {
+        height: 16px;
+        & div:nth-child(1) {
+          position: relative;
+          padding: 10px 5px;
+          font-size: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+        & div:nth-child(2) {
+          font-size: 8px;
+          padding: 10px 5px;
+        }
+      }
+      & img {
+        width: 72px;
+        height: 72px;
+      }
+      & h1 {
+        font-size: 10px;
+        height: 24px;
+      }
+      margin: 5px;
+    }
   }
 `;
