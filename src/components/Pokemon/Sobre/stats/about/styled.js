@@ -2,114 +2,179 @@ import styled from 'styled-components';
 
 export const AboutArea = styled.div`
   display: flex;
-  width: fit-content;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
   margin: 20px auto;
   align-items: center;
 
-  p {
-    color: #666666;
+  .text {
+    font-weight: 400;
     font-size: 15px;
-    height: fit-content;
-  }
-
-  .weight {
-    display: flex;
-    font-size: 18px;
-    height: fit-content;
-    flex-direction: column;
-    align-items: center;
-
-    & span {
-      min-height: 100px;
-      padding: 10px 40px;
-    }
-  }
-
-  .height {
-    display: flex;
-    font-size: 18px;
-    height: fit-content;
-    border-right: 2px solid #e0e0e0;
-    border-left: 2px solid #e0e0e0;
-    flex-direction: column;
-    align-items: center;
-
-    & span {
-      min-height: 100px;
-      padding: 10px 40px;
-    }
-  }
-
-  .moves {
-    text-align: left;
-    display: flex;
-    height: fit-content;
-    font-size: 18px;
-    flex-direction: column;
-    align-items: center;
-
-    & span {
-      min-height: 100px;
-      padding: 10px 40px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    p {
-      font-size: 13px;
-      text-align: center;
-      margin-top: -20px;
-    }
-
-    .weight {
-      height: 100px;
-      font-size: 15px;
-      justify-content: space-between;
-
-      & span {
-        padding: 0 20px;
-        & div {
-          width: 100%;
-        }
-      }
-    }
-
-    .height {
-      height: 100px;
-      font-size: 15px;
-      justify-content: flex-start;
-
-      & span {
-        padding: 0 20px;
-
-        & div {
-          width: 100%;
-        }
-      }
-    }
-
-    .moves {
-      height: 100px;
-      font-size: 15px;
-      justify-content: space-between;
-
-      & span {
-        width: fit-content;
-        padding: 0 20px;
-        display: flex;
-        flex-direction: column;
-
-        & div {
-          width: 100%;
-        }
-      }
+    margin-top: 40px;
+    @media (max-width: 768px) {
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 16px;
+      width: 312px;
+      height: 32px;
+      color: #212121;
+      text-align: justify;
     }
   }
 `;
 
 export const BodyData = styled.div`
   display: flex;
+  width: 500px;
+  height: 80px;
+  justify-content: space-between;
+  margin-top: 20px;
+  & .weight {
+    display: flex;
+    justify-content: center;
+    & span {
+      align-items: center;
+      width: fit-content;
+      display: flex;
+    }
+    & p {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 12px;
+      display: flex;
+      margin: 0 auto;
+      margin-top: 20px;
+      color: #666666;
+    }
+  }
+  & .height {
+    display: flex;
+    justify-content: center;
+    & span {
+      width: fit-content;
+      align-items: center;
+      display: flex;
+    }
+    & p {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 12px;
+      display: flex;
+      margin: 0 auto;
+      margin-top: 20px;
+      color: #666666;
+    }
+  }
+  & .moves {
+    display: flex;
+    justify-content: center;
+    & span {
+      align-items: center;
+      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      line-height: 25px;
+      align-items: flex-start;
+    }
+    & p {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 12px;
+      display: flex;
+      margin: 0 auto;
+      margin-top: 20px;
+      color: #666666;
+    }
+  }
+  & div {
+    flex-direction: column;
+    & span {
+      width: 54px;
+      height: 36px;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 16px;
+      & .iconWeight {
+        font-size: 30px;
+      }
+      & .iconRuler {
+        font-size: 30px;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    width: 252px;
+    height: 48px;
+    justify-content: space-between;
+    margin-top: 0;
+    & .weight {
+      width: 70px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      & span {
+        align-items: center;
+        width: fit-content;
+        display: flex;
+      }
+      & p {
+        font-weight: 400;
+        font-size: 8px;
+        line-height: 12px;
+        display: flex;
+        margin: 0 auto;
+      }
+    }
+    & .height {
+      width: 43px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      width: fit-content;
+      & span {
+        align-items: center;
+        display: flex;
+      }
+      & p {
+        font-weight: 400;
+        font-size: 8px;
+        line-height: 12px;
+        display: flex;
+        margin: 0 auto;
+      }
+    }
+    & .moves {
+      width: fit-content;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      & span {
+        align-items: left;
+        display: flex;
+        line-height: 5px;
+      }
+      & p {
+        font-weight: 400;
+        font-size: 8px;
+        line-height: 12px;
+        display: flex;
+        margin: 0 auto;
+      }
+    }
+    & div {
+      & span {
+        width: 54px;
+        height: 36px;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 16px;
+        & .iconWeight {
+          font-size: 16px;
+        }
+        & .iconRuler {
+          font-size: 16px;
+        }
+      }
+    }
+  }
 `;
