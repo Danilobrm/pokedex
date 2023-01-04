@@ -19,7 +19,7 @@ export default function BaseStats() {
       <h2 style={{ color: `${color}` }}>Base Stats</h2>
       {stats.stats.map((item) => {
         return (
-          <div className="stats" key={item.stat.name}>
+          <span className="stats" key={item.stat.name}>
             <div className="stat-name" style={{ color: `${color}` }}>
               {item.stat.name.includes('hp') && 'HP'}
               {item.stat.name === 'defense' && 'DEF'}
@@ -34,21 +34,20 @@ export default function BaseStats() {
                 ? `0${item.base_stat}`
                 : item.base_stat}
             </div>
-            <div className="line">
+            <div>
               <span
                 className="line-stat"
                 style={{
                   background: `${color}`,
-                  opacity: '1',
                   width: `${item.base_stat * 0.5}%`,
                 }}
               />
               <span
                 className="line-stat-back"
-                style={{ background: `${color}`, opacity: '0.2' }}
+                style={{ background: `${color}` }}
               />
             </div>
-          </div>
+          </span>
         );
       })}
     </BaseStatsStyle>
