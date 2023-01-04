@@ -8,7 +8,7 @@ export default function SearchBar() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(actions.pokemonSearchInputRequest({ value }));
+    dispatch(actions.pokemonSearchInputSuccess({ value }));
   });
 
   function handleChange(e) {
